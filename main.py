@@ -77,9 +77,9 @@ def cliptrack(b,s,l):
     global stop_thread
     stop_thread = FALSE
     tmp = ""
-    if os.path.exists("Zwischenablage.txt")== True:
-            f = open("Zwischenablage.txt","r+")
-            f.truncate(0)
+    # if os.path.exists("Zwischenablage.txt")== True:
+    #         f = open("Zwischenablage.txt","r+")
+    #         f.truncate(0)
 
     while  stop_thread == FALSE:
         i = 0
@@ -87,12 +87,12 @@ def cliptrack(b,s,l):
         if data != None and data !=tmp:
             i += i
 
-            track_list = open("Zwischenablage.txt", "a+")
+            # track_list = open("Zwischenablage.txt", "a+")
             now = datetime.now()
             tmp = data
             l.insert(i,now.strftime("%H:%M:%S")+ " ::: " + data+"\n" )
-            track_list.write(now.strftime("%H:%M:%S")+ " ::: " + data+"\n")
-            track_list.close()
+            # track_list.write(now.strftime("%H:%M:%S")+ " ::: " + data+"\n")
+            # track_list.close()
 
 def kill_thread(b, s):
     b.config(state="normal", bg = "green", fg="black", relief="raised")
@@ -102,11 +102,13 @@ def kill_thread(b, s):
 def exit(b,s):
     kill_thread(b,s)
     sys.exit()
-def file_write():
 
-    f = open("text.txt","a+" )
-    f.write("This is new text\n")
-    f.close()
+
+# def file_write():
+#
+#     f = open("text.txt","a+" )
+#     f.write("This is new text\n")
+#     f.close()
 
 #Open GIT-Hub of creator
 def open_github(event):
