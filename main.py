@@ -41,7 +41,7 @@ def GUI():
 
     #Create Scrollbar
     scrollbar = Scrollbar(my_frame, orient=HORIZONTAL)
-    scrollbar.pack(side=BOTTOM, fill=BOTH)
+    scrollbar.pack(side=BOTTOM, fill=X)
 
     #Create Listbox
     track_listbox = Listbox(my_frame, width=40, xscrollcommand= scrollbar.set)
