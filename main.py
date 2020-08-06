@@ -41,7 +41,7 @@ def GUI():
 
     #Create Scrollbar
     scrollbar = Scrollbar(my_frame, orient=HORIZONTAL)
-    scrollbar.pack(side=BOTTOM, fill=X)
+    scrollbar.pack(side=BOTTOM, fill=BOTH)
 
     #Create Listbox
     track_listbox = Listbox(my_frame, width=40, xscrollcommand= scrollbar.set)
@@ -80,12 +80,13 @@ def cliptrack(b,s,l):
     # if os.path.exists("Zwischenablage.txt")== True:
     #         f = open("Zwischenablage.txt","r+")
     #         f.truncate(0)
-
+    i = 0
     while  stop_thread == FALSE:
-        i = 0
+
         data = pyperclip.paste()
         if data != None and data !=tmp:
-            i += i
+            i = i +1
+
 
             # track_list = open("Zwischenablage.txt", "a+")
             now = datetime.now()
@@ -114,6 +115,7 @@ def exit(b,s):
 def open_github(event):
     webbrowser.open("https://github.com/RibelH/CopyPasteTracker")
 
+#START PROGRAM
 if __name__ == '__main__':
     t = threading.Thread(target= cliptrack, args=[True])
     GUI()
